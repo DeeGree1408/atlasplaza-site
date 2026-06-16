@@ -23,10 +23,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         .header-top {
-    background: #000;
-    color: #fff;
-    padding: 0;
-}
+            background: #000;
+            color: #fff;
+            padding: 0;
+        }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo { font-size: 28px; font-weight: 700; color: #CF0A2C; letter-spacing: 1px; }
@@ -381,18 +381,24 @@
 <body>
 
     <header>
+        <!-- ВЕРХНЯЯ ЧЕРНАЯ СТРОКА (уже) -->
         <div class="header-top">
-    	<div class="container" style="display: flex; align-items: center; gap: 20px; padding: 8px 24px;">
-        <img src="logo-atlasplaza.png" alt="AtlasPlaza" style="height: 28px;">
-        <span style="color: #fff; font-weight: 300; font-size: 16px;">AtlasPlaza</span>
-        <span style="color: #fff; margin-left: auto;">+7-495-2255249</span>
-        <a href="https://t.me/yourchannel" style="color: #fff; text-decoration: none; font-size: 14px;">Telegram</a>
-        <a href="#contact" style="color: #fff; text-decoration: none; font-size: 14px;">Связаться</a>
-    </div>
-</div>
-        <div class="container nav">
-            <div class="logo">HUAWEI <span>Ascend</span></div>
-            <nav class="nav-links">
+            <div class="container" style="display: flex; align-items: center; gap: 20px; padding: 4px 24px;">
+                <img src="logo-atlasplaza.png" alt="AtlasPlaza" style="height: 24px;">
+                <span style="color: #fff; font-weight: 300; font-size: 14px;">AtlasPlaza</span>
+                <span style="color: #fff; margin-left: auto; font-size: 14px;">+7-495-2255249</span>
+                <a href="https://t.me/yourchannel" style="color: #fff; text-decoration: none; font-size: 13px;">Telegram</a>
+                <a href="#contact" style="color: #fff; text-decoration: none; font-size: 13px;">Связаться</a>
+            </div>
+        </div>
+
+        <!-- БЕЛАЯ СТРОКА (логотип + навигация, отступ 30px) -->
+        <div class="nav" style="padding: 0 30px; display: flex; align-items: center; height: 70px;">
+            <!-- ТОЛЬКО ЛОГОТИП, БЕЗ НАДПИСИ HUAWEI Ascend -->
+            <img src="huaweilogo-new.png" alt="Логотип" style="height: 40px; width: auto; display: block;">
+            
+            <!-- НАВИГАЦИЯ СПРАВА -->
+            <nav class="nav-links" style="margin-left: auto;">
                 <a href="#about">О платформе</a>
                 <a href="#advantages">Преимущества</a>
                 <a href="#features">Возможности</a>
@@ -405,7 +411,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
-                <h1>Полноценная AI-инфраструктура<br>HUAWEI Ascend</h1>
+                <h1>Полноценная AI-инфраструктура<br>HUAWEI Atlas</h1>
                 <p>Вычислительная платформа на базе AI-процессоров Ascend. Охватывает весь цикл глубокого обучения: от разработки и тренировки моделей до их применения в реальных бизнес-процессах.</p>
                 <div class="hero-buttons">
                     <a href="#products" class="btn-primary">Выбрать решение</a>
