@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUAWEI Ascend — Полноценная AI-инфраструктура</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif; 
+            color: #333; 
+            line-height: 1.6; 
+            background: #fff;
+        }
+        
+        header { 
+            background: #fff; 
+            border-bottom: 1px solid #e5e5e5; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .header-top {
+    background: #000;
+    color: #fff;
+    padding: 0;
+}
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 28px; font-weight: 700; color: #CF0A2C; letter-spacing: 1px; }
+        .logo span { color: #000; font-weight: 400; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: #333; text-decoration: none; position: relative; }
+        .nav-links a:hover { color: #CF0A2C; }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; 
+            background: #CF0A2C; transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        .hero { 
+            background: linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%);
+            padding: 100px 0 80px;
+            min-height: 650px;
+        }
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .hero-text { flex: 1; max-width: 600px; }
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #191919;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #CF0A2C;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background: #A80824;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(207, 10, 44, 0.3);
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            color: #191919;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid #191919;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { background: #191919; color: #fff; }
+        .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+        }
+
+        section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #191919;
+        }
+        .divider { width: 60px; height: 3px; background: #CF0A2C; margin: 0 auto 20px; }
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about { background: #f5f7fa; }
+        .about-content { max-width: 900px; margin: 0 auto; text-align: center; }
+        .about-content p { font-size: 17px; color: #666; line-height: 2; margin-bottom: 20px; }
+
+        .advantages { background: #fff; }
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .advantage-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 2px solid #e5e5e5;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .advantage-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: #CF0A2C;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .advantage-card:hover {
+            border-color: #CF0A2C;
+            box-shadow: 0 10px 30px rgba(207, 10, 44, 0.15);
+            transform: translateY(-5px);
+        }
+        .advantage-card:hover::before { transform: scaleX(1); }
+        .advantage-icon {
+            width: 70px; height: 70px;
+            background: linear-gradient(135deg, #CF0A2C 0%, #E63F5A 100%);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+        .advantage-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #191919;
+        }
+        .advantage-card p { font-size: 15px; color: #666; line-height: 1.7; }
+
+        .features { background: #f5f7fa; }
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 30px; 
+        }
+        .feature-card { 
+            background: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            border-color: #CF0A2C;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .feature-icon { 
+            width: 80px; height: 80px; 
+            margin: 0 auto 24px; 
+            background: linear-gradient(135deg, #CF0A2C 0%, #E63F5A 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 36px;
+            color: #fff;
+        }
+        .feature-card h3 { 
+            font-size: 20px; 
+            font-weight: 600; 
+            margin-bottom: 16px; 
+            color: #191919;
+        }
+        .feature-card p { font-size: 15px; color: #666; line-height: 1.7; }
+
+        .products { background: #fff; }
+        .products-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 40px; 
+        }
+        .product-card { 
+            background: #fff; 
+            border-radius: 4px;
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            transition: all 0.3s;
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .product-image { 
+            height: 350px; 
+            background: #ffffff;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            overflow: hidden;
+        }
+        .product-image img { 
+            width: 90%; 
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+        .product-body { padding: 40px; }
+        .product-tag { 
+            display: inline-block; 
+            background: rgba(207, 10, 44, 0.1); 
+            color: #CF0A2C; 
+            padding: 6px 20px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .product-body h3 { 
+            font-size: 32px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            color: #191919;
+        }
+        .product-body > p { 
+            font-size: 16px; 
+            color: #666; 
+            margin-bottom: 30px; 
+            line-height: 1.8;
+        }
+        .specs-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #191919;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CF0A2C;
+        }
+        .specs-list { list-style: none; }
+        .specs-list li { 
+            padding: 14px 0; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start;
+            font-size: 15px; 
+        }
+        .specs-list li:last-child { border-bottom: none; }
+        .specs-list li strong { 
+            color: #191919; 
+            font-weight: 600;
+            flex: 0 0 45%;
+        }
+        .specs-list li span { 
+            color: #666; 
+            text-align: right; 
+            flex: 0 0 55%;
+        }
+
+        .applications { background: #f5f7fa; }
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .app-card {
+            background: #fff;
+            padding: 30px;
+            border-left: 4px solid #CF0A2C;
+            transition: all 0.3s;
+        }
+        .app-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        .app-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #191919;
+        }
+        .app-card p { font-size: 15px; color: #666; line-height: 1.7; }
+
+        footer { 
+            background: #000; 
+            color: #999; 
+            padding: 60px 0 30px; 
+            font-size: 14px;
+        }
+        .footer-content { 
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-section a { 
+            display: block; 
+            color: #999; 
+            margin-bottom: 12px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .footer-section a:hover { color: #fff; }
+        .footer-logo { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: #CF0A2C; 
+            margin-bottom: 15px;
+        }
+        .copyright { 
+            border-top: 1px solid #222; 
+            padding-top: 30px; 
+            text-align: center; 
+            color: #666;
+        }
+
+        @media (max-width: 992px) {
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero-text { max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .hero-text h1 { font-size: 36px; }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: 1fr; }
+            .apps-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 28px; }
+            .hero { padding: 60px 0 40px; }
+            .nav-links { display: none; }
+            .footer-content { grid-template-columns: 1fr; }
+            .specs-list li { flex-direction: column; gap: 4px; }
+            .specs-list li strong,
+            .specs-list li span { flex: 1 1 100%; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+    	<div class="container" style="display: flex; align-items: center; gap: 20px; padding: 8px 24px;">
+        <img src="logo-atlasplaza.png" alt="AtlasPlaza" style="height: 28px;">
+        <span style="color: #fff; font-weight: 300; font-size: 16px;">AtlasPlaza</span>
+        <span style="color: #fff; margin-left: auto;">+7-495-2255249</span>
+        <a href="https://t.me/yourchannel" style="color: #fff; text-decoration: none; font-size: 14px;">Telegram</a>
+        <a href="#contact" style="color: #fff; text-decoration: none; font-size: 14px;">Связаться</a>
+    </div>
+</div>
+        <div class="container nav">
+            <div class="logo">HUAWEI <span>Ascend</span></div>
+            <nav class="nav-links">
+                <a href="#about">О платформе</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#features">Возможности</a>
+                <a href="#products">Продукты</a>
+                <a href="#applications">Применение</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Полноценная AI-инфраструктура<br>HUAWEI Ascend</h1>
+                <p>Вычислительная платформа на базе AI-процессоров Ascend. Охватывает весь цикл глубокого обучения: от разработки и тренировки моделей до их применения в реальных бизнес-процессах.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn-primary">Выбрать решение</a>
+                    <a href="#advantages" class="btn-outline">Почему Atlas?</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="hero-atlas.png" alt="Atlas 900 AI кластер и Atlas 800 AI сервер">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Экосистема Atlas AI</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-content">
+                <p>На базе AI-процессоров HUAWEI Ascend и базового программного обеспечения созданы решения Atlas для искусственного интеллекта. Платформа охватывает весь спектр AI-вычислений: от компактных модулей и ускорителей до высокопроизводительных серверов и кластеров.</p>
+                <p>Решения поддерживают полный цикл разработки AI: создание моделей, их обучение на больших данных и запуск в production-среде для обработки запросов в реальном времени.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Почему Huawei Atlas лучше Nvidia</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">Сравнение платформ для искусственного интеллекта</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>Лучшая цена</h3>
+                    <p>Стоимость владения на 30-40% ниже при сопоставимой производительности. Доступнее масштабирование инфраструктуры без переплаты за бренд.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🔒</div>
+                    <h3>Независимость от санкций</h3>
+                    <p>Полная доступность оборудования и программного обеспечения. Никаких экспортных ограничений и внезапных запретов на поставку.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Энергоэффективность</h3>
+                    <p>Архитектура Da Vinci обеспечивает лучшее соотношение производительности к потребляемой мощности. Меньше затрат на электричество и охлаждение.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🌐</div>
+                    <h3>Полный стек решений</h3>
+                    <p>Единая экосистема: от чипов до облачных сервисов. Глубокая интеграция с сетевым оборудованием и системами хранения Huawei.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🛠️</div>
+                    <h3>Локальная поддержка</h3>
+                    <p>Техническая поддержка и кастомизация под ваши задачи. Быстрое реагирование на запросы, обучение персонала, помощь во внедрении.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">📈</div>
+                    <h3>Масштабируемость</h3>
+                    <p>Кластеры Atlas 900 масштабируются до тысяч процессоров без потери эффективности. Идеально для больших языковых моделей и сложных вычислений.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ключевые преимущества</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">Открытые, простые и надёжные AI-решения для бизнеса любого масштаба</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Экстремальная производительность</h3>
+                    <p>Архитектура Da Vinci обеспечивает максимальную плотность AI-вычислений и высокую скорость обработки нейросетей</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❄️</div>
+                    <h3>Энергоэффективность</h3>
+                    <p>Передовые технологии охлаждения и оптимизация электропитания снижают TCO и расходы на содержание дата-центра</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Открытая платформа</h3>
+                    <p>Синергия между облаком, периферией и устройствами. Аппаратная и программная открытость для гибкой интеграции</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Комплексная безопасность</h3>
+                    <p>Многоуровневая защита на всех этапах: от физического уровня чипа до программного обеспечения и передачи данных</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Флагманские AI-серверы</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">Высокопроизводительные серверы Atlas для обучения и применения нейросетей</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="atlas-800t.jpg" alt="Atlas 800T A2">
+                    </div>
+                    <div class="product-body">
+                        <span class="product-tag">Обучение нейросетей (Training)</span>
+                        <h3>Atlas 800T A2</h3>
+                        <p>Сервер для тренировки моделей с высокой плотностью вычислений. Идеально подходит для разработки и обучения моделей глубокого обучения в умных городах, финтехе, образовании, телекоммуникациях и медицинской диагностике.</p>
+                        <div class="specs-title">Технические характеристики</div>
+                        <ul class="specs-list">
+                            <li><strong>Форм-фактор</strong> <span>4U AI-сервер</span></li>
+                            <li><strong>Процессоры</strong> <span>4 × Kunpeng 920 (ARM)</span></li>
+                            <li><strong>AI-ускорители</strong> <span>8 × Ascend 910B</span></li>
+                            <li><strong>Оперативная память</strong> <span>32 слота DDR4 (до 3200 MT/s)</span></li>
+                            <li><strong>Интерконнект NPU</strong> <span>HCCS для связи AI-процессоров</span></li>
+                            <li><strong>Сеть</strong> <span>8 × 200GE QSFP (RoCE)</span></li>
+                            <li><strong>Питание</strong> <span>4 блока по 2600W (2+2)</span></li>
+                            <li><strong>Основное назначение</strong> <span>Обучение нейросетей, тренировка моделей</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="atlas-800t.jpg" alt="Atlas 800I A2">
+                    </div>
+                    <div class="product-body">
+                        <span class="product-tag">Применение моделей (Inference)</span>
+                        <h3>Atlas 800I A2</h3>
+                        <p>Сервер для применения уже обученных нейросетей с поддержкой генеративных моделей. Отлично справляется с обработкой больших языковых моделей (LLM), умными помощниками, генерацией контента и базами знаний.</p>
+                        <div class="specs-title">Технические характеристики</div>
+                        <ul class="specs-list">
+                            <li><strong>Форм-фактор</strong> <span>4U AI-сервер</span></li>
+                            <li><strong>Процессоры</strong> <span>4 × Kunpeng 920 (ARM)</span></li>
+                            <li><strong>AI-ускорители</strong> <span>8 × Ascend 910B</span></li>
+                            <li><strong>Оперативная память</strong> <span>32 слота DDR4 (до 3200 MT/s)</span></li>
+                            <li><strong>Интерконнект NPU</strong> <span>Полный интерконнект 392 ГБ/с</span></li>
+                            <li><strong>Сеть</strong> <span>8 × 200GE QSFP (RoCE)</span></li>
+                            <li><strong>Питание</strong> <span>4 блока по 2600W (2+2)</span></li>
+                            <li><strong>Основное назначение</strong> <span>Запуск моделей, LLM, генерация</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="applications" class="applications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Сценарии применения</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">AI-серверы Atlas решают задачи в различных отраслях</p>
+            </div>
+            <div class="apps-grid">
+                <div class="app-card">
+                    <h4>🏙️ Умные города</h4>
+                    <p>Распознавание лиц, анализ трафика, управление городской инфраструктурой, безопасность</p>
+                </div>
+                <div class="app-card">
+                    <h4>🏦 Финансы</h4>
+                    <p>Обнаружение мошенничества, кредитный скоринг, алгоритмическая торговля, чат-боты</p>
+                </div>
+                <div class="app-card">
+                    <h4>🏥 Здравоохранение</h4>
+                    <p>Медицинская диагностика, анализ снимков, разработка лекарств, персонализированная медицина</p>
+                </div>
+                <div class="app-card">
+                    <h4>📡 Телеком</h4>
+                    <p>Оптимизация сетей, прогнозирование нагрузки, автоматизация обслуживания клиентов</p>
+                </div>
+                <div class="app-card">
+                    <h4>🎓 Образование</h4>
+                    <p>Адаптивное обучение, проверка работ, виртуальные помощники, аналитика успеваемости</p>
+                </div>
+                <div class="app-card">
+                    <h4>🛒 Ритейл</h4>
+                    <p>Системы рекомендаций, прогнозирование спроса, анализ покупательского поведения</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">HUAWEI Ascend</div>
+                    <p>Полноценная AI-инфраструктура для устройств, периферийных узлов и облака. Охватывает весь цикл глубокого обучения.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Продукты</h4>
+                    <a href="#">Atlas 800T A2</a>
+                    <a href="#">Atlas 800I A2</a>
+                    <a href="#">Atlas 900 Cluster</a>
+                    <a href="#">Atlas 200/500</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Ресурсы</h4>
+                    <a href="#">Документация</a>
+                    <a href="#">Технические白皮书</a>
+                    <a href="#">Примеры кода</a>
+                    <a href="#">Сообщество</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Поддержка</h4>
+                    <a href="#">Связаться с нами</a>
+                    <a href="#">Найти партнёра</a>
+                    <a href="#">Техподдержка</a>
+                    <a href="#">Где купить</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 Huawei Technologies Co., Ltd. Все права защищены.</p>
+                <p style="margin-top: 10px; font-size: 12px;">
+                    Лендинг создан на основе официальных данных 
+                    <a href="https://e.huawei.com/cn/products/computing/ascend" target="_blank" style="color: #999;">Huawei Ascend</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
