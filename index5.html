@@ -100,7 +100,7 @@
             transition: all 0.3s;
         }
         .btn-outline:hover { background: #191919; color: #fff; }
-        .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
+        .hero-image { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .hero-image img {
             max-width: 100%;
             height: auto;
@@ -462,7 +462,7 @@
             <h1>Huawei Atlas — инфраструктура для корпоративного ИИ нового поколения!</h1>
             <p>Ищете альтернативу NVIDIA для построения корпоративной AI-инфраструктуры? Серверные решения Huawei Atlas на базе процессоров Kunpeng и AI-ускорителей Ascend обеспечивают высокую производительность для генеративного искусственного интеллекта, больших языковых моделей (LLM), компьютерного зрения, видеоаналитики и обработки больших данных.</p>
             
-            <div style="background: rgba(207,10,44,0.05); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <div style="background: rgba(207,10,44,0.05); padding: 20px; border-radius: 8px;">
                 <strong style="display: block; margin-bottom: 10px; color: #191919;">Преимущества Huawei Atlas:</strong>
                 <div style="color: #333; line-height: 1.8;">
                     ✔ Альтернатива традиционным GPU-платформам для AI-задач<br>
@@ -472,16 +472,16 @@
                     ✔ Поставка, внедрение и техническая поддержка под ключ
                 </div>
             </div>
-            
-            <p style="margin-bottom: 30px; font-weight: 500;">Получите коммерческое предложение и узнайте, как снизить зависимость от зарубежных AI-платформ, сохранив высокую производительность вычислений.</p>
-            
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Получить коммерческое предложение</a>
-                <a href="#products" class="btn-outline">Смотреть решения</a>
-            </div>
         </div>
         <div class="hero-image">
             <img src="hero-atlas.png" alt="Huawei Atlas">
+            <div style="text-align: center; margin-top: 30px; width: 100%;">
+                <p style="margin-bottom: 20px; font-weight: 500; color: #333;">Получите коммерческое предложение и узнайте, как снизить зависимость от зарубежных AI-платформ, сохранив высокую производительность вычислений.</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="#contact" class="btn-primary" style="white-space: nowrap;">Получить коммерческое предложение</a>
+                    <a href="#products" class="btn-outline" style="white-space: nowrap;">Смотреть решения</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
