@@ -358,6 +358,54 @@
             color: #666;
         }
 
+        /* FAQ Accordion */
+.faq-section { background: #f5f7fa; }
+.faq-container { max-width: 900px; margin: 0 auto; }
+.faq-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.faq-item:hover { border-color: #CF0A2C; }
+.faq-question {
+    padding: 20px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #191919;
+    user-select: none;
+}
+.faq-question::after {
+    content: '+';
+    font-size: 24px;
+    color: #CF0A2C;
+    transition: transform 0.3s;
+}
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 25px;
+}
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 25px 20px;
+}
+.faq-answer p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
         @media (max-width: 992px) {
             .hero-container { flex-direction: column; text-align: center; }
             .hero-text { max-width: 100%; }
@@ -402,10 +450,7 @@
             <nav class="nav-links" style="margin-left: auto;">
                 <a href="#products">Продукты</a>
                 <a href="#why-us">Почему мы?</a>
-                <a href="#advantages">Преимущества</a>
-                <a href="#features">Возможности</a>
-                <a href="#about">О платформе</a>
-                <a href="#applications">Применение</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact">Контакты</a>
             </nav>
         </div>
@@ -444,7 +489,7 @@
 <section id="products" class="products"> 
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Флагманские AI-серверы</h2>
+                <h2 class="section-title">Серверные решения Atlas</h2>
                 <div class="divider"></div>
                 <p class="section-subtitle">Высокопроизводительные серверы Atlas для обучения и применения нейросетей</p>
             </div>
@@ -541,132 +586,100 @@
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Экосистема Atlas AI</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="about-content">
-                <p>На базе процессоров HUAWEI Kunpeng, AI-ускорителей Ascend и базового программного обеспечения созданы решения Atlas для искусственного интеллекта. Платформа охватывает весь спектр AI-вычислений: от компактных модулей и ускорителей до высокопроизводительных серверов и кластеров.</p>
-                <p>Решения поддерживают полный цикл разработки AI: создание моделей, их обучение на больших данных и запуск в production-среде для обработки запросов в реальном времени.</p>
-            </div>
+    <section id="faq" class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Всё, что нужно знать о Huawei Atlas и работе с нами</p>
         </div>
-    </section>
-
-    <section id="advantages" class="advantages">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Почему Huawei Atlas лучше Nvidia</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Сравнение платформ для искусственного интеллекта</p>
-            </div>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="advantage-icon">💰</div>
-                    <h3>Лучшая цена</h3>
-                    <p>Стоимость владения на 30-40% ниже при сопоставимой производительности. Доступнее масштабирование инфраструктуры без переплаты за бренд.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">🔒</div>
-                    <h3>Независимость от санкций</h3>
-                    <p>Полная доступность оборудования и программного обеспечения. Никаких экспортных ограничений и внезапных запретов на поставку.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">⚡</div>
-                    <h3>Энергоэффективность</h3>
-                    <p>Архитектура Da Vinci обеспечивает лучшее соотношение производительности к потребляемой мощности. Меньше затрат на электричество и охлаждение.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">🌐</div>
-                    <h3>Полный стек решений</h3>
-                    <p>Единая экосистема: от чипов до облачных сервисов. Глубокая интеграция с сетевым оборудованием и системами хранения Huawei.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">🛠️</div>
-                    <h3>Локальная поддержка</h3>
-                    <p>Техническая поддержка и кастомизация под ваши задачи. Быстрое реагирование на запросы, обучение персонала, помощь во внедрении.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">📈</div>
-                    <h3>Масштабируемость</h3>
-                    <p>Кластеры Atlas 900 масштабируются до тысяч процессоров без потери эффективности. Идеально для больших языковых моделей и сложных вычислений.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Что такое Huawei Atlas?</div>
+                <div class="faq-answer">
+                    <p>Huawei Atlas — это полноценная AI-инфраструктура на базе процессоров Kunpeng и AI-ускорителей Ascend. Платформа охватывает весь спектр AI-вычислений: от компактных модулей и ускорителей до высокопроизводительных серверов и кластеров Atlas 900. Решения поддерживают полный цикл разработки AI: создание моделей, обучение на больших данных и запуск в production-среде.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Ключевые преимущества</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Открытые, простые и надёжные AI-решения для бизнеса любого масштаба</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Экстремальная производительность</h3>
-                    <p>Архитектура Da Vinci обеспечивает максимальную плотность AI-вычислений и высокую скорость обработки нейросетей</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">❄️</div>
-                    <h3>Энергоэффективность</h3>
-                    <p>Передовые технологии охлаждения и оптимизация электропитания снижают TCO и расходы на содержание дата-центра</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3>Открытая платформа</h3>
-                    <p>Синергия между облаком, периферией и устройствами. Аппаратная и программная открытость для гибкой интеграции</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Комплексная безопасность</h3>
-                    <p>Многоуровневая защита на всех этапах: от физического уровня чипа до программного обеспечения и передачи данных</p>
+            <div class="faq-item">
+                <div class="faq-question">Чем Huawei Atlas отличается от решений других производителей?</div>
+                <div class="faq-answer">
+                    <p><strong>Лучшая цена:</strong> стоимость владения на 30-40% ниже при сопоставимой производительности.<br>
+                    <strong>Независимость от санкций:</strong> полная доступность оборудования, никаких экспортных ограничений.<br>
+                    <strong>Энергоэффективность:</strong> архитектура Da Vinci обеспечивает лучшее соотношение производительности к потребляемой мощности.<br>
+                    <strong>Полный стек решений:</strong> единая экосистема от чипов до облачных сервисов.<br>
+                    <strong>Локальная поддержка:</strong> техническая поддержка и кастомизация под ваши задачи.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    
-
-       
-
-    <section id="applications" class="applications">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Сценарии применения</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">AI-серверы Atlas решают задачи в различных отраслях</p>
+            <div class="faq-item">
+                <div class="faq-question">Для каких задач подходит Huawei Atlas?</div>
+                <div class="faq-answer">
+                    <p>Atlas решает задачи в различных отраслях:<br>
+                    🏙️ <strong>Умные города:</strong> распознавание лиц, анализ трафика, управление инфраструктурой<br>
+                    🏦 <strong>Финансы:</strong> обнаружение мошенничества, кредитный скоринг, алгоритмическая торговля<br>
+                    🏥 <strong>Здравоохранение:</strong> медицинская диагностика, анализ снимков, разработка лекарств<br>
+                    📡 <strong>Телеком:</strong> оптимизация сетей, прогнозирование нагрузки<br>
+                    🎓 <strong>Образование:</strong> адаптивное обучение, виртуальные помощники<br>
+                    🛒 <strong>Ритейл:</strong> системы рекомендаций, прогнозирование спроса</p>
+                </div>
             </div>
-            <div class="apps-grid">
-                <div class="app-card">
-                    <h4>🏙️ Умные города</h4>
-                    <p>Распознавание лиц, анализ трафика, управление городской инфраструктурой, безопасность</p>
+            <div class="faq-item">
+                <div class="faq-question">Какие серверы входят в линейку Atlas?</div>
+                <div class="faq-answer">
+                    <p>Флагманские модели:<br>
+                    <strong>Atlas 800T A2</strong> — сервер для тренировки моделей (8 × Ascend 910B, 4U форм-фактор)<br>
+                    <strong>Atlas 800I A2</strong> — сервер для применения моделей и инференса (поддержка LLM, генерации)<br>
+                    <strong>Atlas 900</strong> — AI-кластер для масштабных вычислений (тысячи процессоров)<br>
+                    <strong>Atlas 200/500</strong> — компактные модули и ускорители для периферийных устройств</p>
                 </div>
-                <div class="app-card">
-                    <h4>🏦 Финансы</h4>
-                    <p>Обнаружение мошенничества, кредитный скоринг, алгоритмическая торговля, чат-боты</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Насколько сложно внедрить Atlas в существующую инфраструктуру?</div>
+                <div class="faq-answer">
+                    <p>Atlas — открытая платформа с аппаратной и программной совместимостью. Она интегрируется с существующими системами хранения, сетевым оборудованием и облачными сервисами. Мы помогаем с конфигурацией, пусконаладкой и обучением персонала, чтобы переход прошёл безболезненно.</p>
                 </div>
-                <div class="app-card">
-                    <h4>🏥 Здравоохранение</h4>
-                    <p>Медицинская диагностика, анализ снимков, разработка лекарств, персонализированная медицина</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Какое программное обеспечение используется с Atlas?</div>
+                <div class="faq-answer">
+                    <p>Платформа использует фреймворк MindSpore (аналог TensorFlow/PyTorch), который оптимизирован под архитектуру Ascend. Также поддерживаются популярные фреймворки через адаптеры. Экосистема включает инструменты для разработки, тренировки и деплоя моделей.</p>
                 </div>
-                <div class="app-card">
-                    <h4>📡 Телеком</h4>
-                    <p>Оптимизация сетей, прогнозирование нагрузки, автоматизация обслуживания клиентов</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Есть ли проблемы с поставками оборудования?</div>
+                <div class="faq-answer">
+                    <p>Нет. Мы самостоятельно импортируем оборудование из Китая, минуя посредников. Каждая поставка сопровождается оригиналами ГТД (грузовой таможенной декларации), что гарантирует подлинность и прозрачность сделки. Никаких санкций и запретов на поставку.</p>
                 </div>
-                <div class="app-card">
-                    <h4>🎓 Образование</h4>
-                    <p>Адаптивное обучение, проверка работ, виртуальные помощники, аналитика успеваемости</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Какая гарантия и поддержка?</div>
+                <div class="faq-answer">
+                    <p>Мы предоставляем:<br>
+                    • Гарантийное обслуживание силами наших инженеров<br>
+                    • Пусконаладку и техническую поддержку на всех этапах<br>
+                    • Помощь с оптимизацией производительности<br>
+                    • Прямую связь с инженерами Huawei в Китае для решения сложных задач<br><br>
+                    Вы получаете не просто «коробку», а надёжного технологического партнёра.</p>
                 </div>
-                <div class="app-card">
-                    <h4>🛒 Ритейл</h4>
-                    <p>Системы рекомендаций, прогнозирование спроса, анализ покупательского поведения</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Подходит ли Atlas для больших языковых моделей (LLM)?</div>
+                <div class="faq-answer">
+                    <p>Да. Atlas 800I A2 специально разработан для работы с LLM и генеративным AI. Сервер обеспечивает высокую скорость инференса, поддерживает модели с миллиардами параметров и может использоваться для создания корпоративных AI-ассистентов, баз знаний и систем генерации контента.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Как начать работу с Atlas?</div>
+                <div class="faq-answer">
+                    <p>Свяжитесь с нами для консультации. Мы поможем:<br>
+                    1. Определить задачи и подобрать конфигурацию<br>
+                    2. Рассчитать стоимость и сроки поставки<br>
+                    3. Организовать пилотный проект<br>
+                    4. Обеспечить внедрение и поддержку</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="contact" class="applications">
         <div class="container">
@@ -704,6 +717,21 @@
     </section>
 
     <footer>
-
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Закрыть все
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            // Открыть текущий (если не был активен)
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
